@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bañaga Restaurant - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 300px;
+        }
+
+        input,
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #ff6600;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e65c00;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+
+            .login-container {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login to Bañaga Restaurant</h2>
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter Username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter Password" required>
+        <input type="checkbox" onclick="togglePassword()"> Show Password
+        <button onclick="checkLogin()">Login</button>
+        <p id="error-message" style="color: red;"></p>
+    </div>
+
+    <script>
+        function checkLogin() {
+            var user = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
+            document.getElementById("error-message").innerText = ''; // Clear error message if user types again.
+
+            if (user === "admin1234" && pass === "admin123") {
+                alert("Login successful! Redirecting...");
+                window.location.href = "homepage.html"; // Redirect to the main homepage
+            } else {
+                document.getElementById("error-message").innerText = "Invalid username or password!";
+            }
+        }
+
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            passwordField.type = passwordField.type === "password" ? "text" : "password";
+        }
+    </script>
+</body>
+
+</html>
